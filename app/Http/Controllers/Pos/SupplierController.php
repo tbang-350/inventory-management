@@ -47,14 +47,16 @@ class SupplierController extends Controller
         return redirect()->route('supplier.all')->with($notification);
     }
 
-    public function SupplierEdit($id){
+    public function SupplierEdit($id)
+    {
 
         $supplier = Supplier::findOrFail($id);
-        return view('backend.supplier.supplier_edit',compact('supplier'));   
+        return view('backend.supplier.supplier_edit', compact('supplier'));
 
     }
 
-    public function SupplierUpdate(Request $request){
+    public function SupplierUpdate(Request $request)
+    {
 
         $supplier_id = $request->id;
 
@@ -76,7 +78,8 @@ class SupplierController extends Controller
 
     }
 
-    public function SupplierDelete($id){
+    public function SupplierDelete($id)
+    {
 
         Supplier::findOrFail($id)->delete();
 

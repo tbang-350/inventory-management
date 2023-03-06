@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\SupplierController;
+use App\Http\Controllers\Pos\CustomerController;
 
 
 Route::get('/', function () {
@@ -17,7 +18,7 @@ Route::controller(DemoController::class)->group(function () {
 });
 
 
- // Admin All Route 
+ // Admin Routes 
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/admin/profile', 'Profile')->name('admin.profile');
@@ -29,6 +30,7 @@ Route::controller(AdminController::class)->group(function () {
      
 });
 
+//Supplier Routes
 Route::controller(SupplierController::class)->group(function () {
     Route::get('/supplier/all', 'SupplierAll')->name('supplier.all');
     Route::get('/supplier/add', 'SupplierAdd')->name('supplier.add');
@@ -38,7 +40,12 @@ Route::controller(SupplierController::class)->group(function () {
     Route::get('/supplier/delete/{id}', 'SupplierDelete')->name('supplier.delete');
 });
 
- 
+// Customer Routes
+Route::controller(CustomerController::class)->group(function () {
+    Route::get('/customer/all', 'CustomerAll')->name('customer.all');
+    Route::get('/customer/add', 'CustomerAdd')->name('customer.add');
+    Route::post('/customer/store', 'CustomerStore')->name('customer.store');
+});
 
 
 
