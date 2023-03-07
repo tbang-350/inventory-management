@@ -18,6 +18,7 @@
                      </a>
                  </li>
 
+
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="ri-mail-send-line"></i>
@@ -27,6 +28,7 @@
                          <li><a href="{{ route('supplier.all') }}">All Suppliers</a></li>
                      </ul>
                  </li>
+
 
                  <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -38,6 +40,7 @@
                     </ul>
                 </li>
 
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
@@ -45,6 +48,17 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('unit.all') }}">All Units</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Manage Categories</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('category.all') }}">All Categories</a></li>
                     </ul>
                 </li>
 
