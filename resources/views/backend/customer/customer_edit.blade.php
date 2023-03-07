@@ -11,19 +11,23 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Add New Customer </h4><br><br>
+                            <h4 class="card-title">Edit Customer </h4><br><br>
 
 
 
 
 
-                            <form method="post" action="{{ route('customer.store') }}" id="myForm" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('customer.update') }}" id="myForm"
+                                enctype="multipart/form-data">
                                 @csrf
+
+                                <input type="hidden" name="id" value="{{ $customer->id }}">
 
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Customer Name</label>
                                     <div class=" form-group col-sm-10">
-                                        <input name="name" class="form-control" type="text">
+                                        <input name="name" class="form-control" type="text"
+                                            value="{{ $customer->name }}">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -32,7 +36,8 @@
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Phone Number</label>
                                     <div class="form-group col-sm-10">
-                                        <input name="mobile_no" class="form-control" type="text">
+                                        <input name="mobile_no" class="form-control" value="{{ $customer->mobile_no }}"
+                                            type="text">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -40,7 +45,8 @@
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Email</label>
                                     <div class="form-group col-sm-10">
-                                        <input name="email" class="form-control" type="Email">
+                                        <input name="email" class="form-control" value="{{ $customer->email }}"
+                                            type="Email">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -50,7 +56,8 @@
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Address</label>
                                     <div class=" form-group col-sm-10">
-                                        <input name="address" class="form-control" type="text">
+                                        <input name="address" class="form-control" value="{{ $customer->address }}"
+                                            type="text">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -66,7 +73,7 @@
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
                                     <div class="col-sm-10">
-                                        <img id="showImage" class="rounded avatar-lg" src="{{ url('upload/no_image.jpg') }}"
+                                        <img id="showImage" class="rounded avatar-lg" src="{{ asset($customer->customer_image) }}"
                                             alt="Card image cap">
                                     </div>
                                 </div>
@@ -74,7 +81,7 @@
 
 
 
-                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Customer">
+                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Customer">
                             </form>
 
 
@@ -105,13 +112,13 @@
                 },
                 messages: {
                     name: {
-                        required: 'Please Enter Customer Name',
+                        required: 'Please Enter Supplier Name',
                     },
                     mobile_no: {
-                        required: 'Please Enter Customer Phone number',
+                        required: 'Please Enter Supplier Phone number',
                     },
                     address: {
-                        required: 'Please Enter Customer Address',
+                        required: 'Please Enter Supplier Address',
                     },
                 },
                 errorElement: 'span',

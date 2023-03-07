@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Pos;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Supplier;
 use Auth;
-use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 class SupplierController extends Controller
@@ -25,7 +25,8 @@ class SupplierController extends Controller
 
         return view('backend.supplier.supplier_add');
 
-    }
+    } // End Method
+
 
     public function SupplierStore(Request $request)
     {
@@ -45,7 +46,10 @@ class SupplierController extends Controller
         );
 
         return redirect()->route('supplier.all')->with($notification);
-    }
+
+    }//End Method
+
+
 
     public function SupplierEdit($id)
     {
@@ -53,7 +57,8 @@ class SupplierController extends Controller
         $supplier = Supplier::findOrFail($id);
         return view('backend.supplier.supplier_edit', compact('supplier'));
 
-    }
+    }// End Method
+
 
     public function SupplierUpdate(Request $request)
     {
@@ -76,7 +81,7 @@ class SupplierController extends Controller
 
         return redirect()->route('supplier.all')->with($notification);
 
-    }
+    } // End Method
 
     public function SupplierDelete($id)
     {
@@ -90,5 +95,7 @@ class SupplierController extends Controller
 
         return redirect()->back()->with($notification);
 
-    }
+    }// End Method
+
+
 }
